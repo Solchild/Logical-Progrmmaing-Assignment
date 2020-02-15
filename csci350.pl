@@ -5,6 +5,6 @@ sum-up-numbers-simple([], 0).
 
 % Only numbers
 sum-up-numbers-simple([First|Rest], Sum) :-
-number(First),
-sum-up-numbers-simple(Rest, Sum1),
-Sum is First + Sum1.
+  number(First),
+  sum-up-numbers-simple(Rest, Sum1),
+  Sum is First + Sum1.
