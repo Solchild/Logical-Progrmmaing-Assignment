@@ -1,1 +1,10 @@
+% 1 sum up numbers not in a nested list
 
+% first case
+sum-up-numbers-simple([], 0).
+
+% Only numbers
+sum-up-numbers-simple([First|Rest], Sum) :-
+number(First),
+sum-up-numbers-simple(Rest, Sum1),
+Sum is First + Sum1.
