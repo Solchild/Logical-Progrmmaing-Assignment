@@ -12,8 +12,8 @@ sum-up-numbers-simple([First|Rest], Sum) :-
 
 % non-numbers
 sum-up-numbers-simple([First|Rest], Sum1) :-
-	\+(number(First)),
-	sum-up-numbers-simple(Rest, Sum1).
+  \+(number(First)),
+  sum-up-numbers-simple(Rest, Sum1).
 
 
 % 2 sum up numbers in a list (general)
@@ -23,6 +23,12 @@ sum-up-numbers-simple([First|Rest], Sum1) :-
 
 % first is a number
 sum-up-numbers-general([First|Rest], Sum) :-
-number(First),
-sum-up-numbers-general(Rest, Sum1),
-Sum is First + Sum1.
+  number(First),
+  sum-up-numbers-general(Rest, Sum1),
+  Sum is First + Sum1.
+
+% if it's a list
+sum-up-numbers-general([FirstElem|Rest],Sum) :-
+    is_list(FirstElem),
+    is_list(Rest),
+    sum-up-numbers-general(FirstElem, FirstResult).
