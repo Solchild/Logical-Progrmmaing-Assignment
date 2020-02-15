@@ -29,6 +29,10 @@ sum-up-numbers-general([First|Rest], Sum) :-
 
 % if it's a list
 sum-up-numbers-general([FirstElem|Rest],Sum) :-
-    is_list(FirstElem),
-    is_list(Rest),
+    isList(FirstElem),
+    isList(Rest),
     sum-up-numbers-general(FirstElem, FirstResult).
+    
+sum-up-numbers-general([First|Rest],Sum) :-
+    not(number(First)),
+    sum-up-numbers-general(Rest, Sum).
