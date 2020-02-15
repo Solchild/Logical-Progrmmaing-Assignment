@@ -20,3 +20,9 @@ sum-up-numbers-simple([First|Rest], Sum1) :-
 
 % first case
   sum-up-numbers-general([], 0).
+
+% first is a number
+sum-up-numbers-general([First|Rest], Sum) :-
+number(First),
+sum-up-numbers-general(Rest, Sum1),
+Sum is First + Sum1.
