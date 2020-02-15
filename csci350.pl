@@ -10,6 +10,11 @@ sum-up-numbers-simple([First|Rest], Sum) :-
   sum-up-numbers-simple(Rest, Sum1),
   Sum is First + Sum1.
 
+% non-numbers
+sum-up-numbers-simple([First|Rest], Sum1) :-
+	\+(number(First)),
+	sum-up-numbers-simple(Rest, Sum1).
+
 
 % 2 sum up numbers in a list (general)
 
